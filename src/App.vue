@@ -17,11 +17,11 @@
   <img class="-mt-10 md:-mt-16 ml-3 md:ml-0 h-20 w-20 " src="./img/71kbyr6phxl._sl1300__1024x768_.jpg" alt="">
     <div>
       <h2 class="text-center">
-      Cooler Master 
-      MCW-L3B2-KN5N MasterBox 
-      Lite 3 Micro-ATX Chassis</h2>
+      Cooler Master MCW-L3B2-KN5N MasterBox Lite 3 Micro-ATX Chassis</h2>
       <h3 class="text-red-600 text-center">R599,00</h3>
-      <div class="grid place-items-center"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Select</button></div>
+      <div class="grid place-items-center">
+      <button @click= "addtocart('Cooler Master MCW-L3B2-KN5N MasterBox Lite 3 Micro-ATX Chassis','1',599)" 
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Select</button></div>
     </div>
   
   </div>
@@ -355,46 +355,77 @@
     </div>
   </div>
   </div>
-    <div>
-      <h1 class="text-5xl text-center text-red-400">Price</h1>
-    </div>
-
-
-    <div class="flex">
-      <div class="grid place-items-center">
-        <input id="helper-radio" aria-describedby="helper-radio-text" type="radio" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-    </div>
-    <div class="ml-2 text-sm">
-        <label for="helper-radio" class="font-medium text-gray-900 dark:text-gray-300">Free shipping </label>
-        <p id="helper-radio-text" class="text-xs font-normal text-gray-500 dark:text-gray-300">For orders for national purchases</p>
-    </div>
-</div>
-</body>
-
-
+  <div class="grid place-items-center">
+    <button @click = "total()"   class="bg-red-800 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-full">Select</button>
   </div>
-  <footer class="text-gray-100 bg-gray-800">
-    <div class="max-w-3xl mx-auto py-6">
-        <h1 class="text-center text-lg lg:text-2xl">
-           Thanks for building your Pc
-        </h1>
-        <hr class="h-px mt-6 bg-gray-700 border-none">
+  <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+    <table v-if="table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+            <th>Name</th>
+            <th>Quanity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr v-for="(item, index) in rowData" :key="index">
+              <th scope="row">{{ item.components }}</th>
+              <td>{{ item.quatity }}</td>
+              <td>{{ item.price }}</td>
+            </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>TOTAL: </td>
+            <td>{{grandtotal}}</td>
+        </tr>
+    </tfoot>
+</table>
+  </div>
+</body>
+</div>
+  
 
-        <div class="flex flex-col items-center justify-between mt-6 md:flex-row">
-            <div>
-                <a href="#" class="text-xl font-bold text-gray-100 hover:text-gray-400">Uzair Sarvan</a>
-            </div>
 
-            <div class="flex mt-4 md:m-0">
-                <div class="-mx-4">
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
 </template>
 
 <script>
-</script>
+  export default {
+    data(){
+      return{
+      arrcomponents : [],
+      arrPrice : [],
+      arrQuantity : [],
+      table: false,
+      grandtotal : 0,
+      rowData:[],
+      }
+    },
+    methods: {
+      addtocart(name,qty,pr){
+        var row_Object = {
+          components : name,
+          quatity : qty,
+          price : pr,
+        }
+        this.rowData.push(row_Object);
+        //this.arrcomponents.push(name);
+        //this.arrQuantity.push(qty);
+        this.arrPrice.push(pr);
+      },
+      total(){
+
+        for (let index = 0; index < this.arrPrice.length; index++) {
+          this.grandtotal = this.grandtotal + this.arrPrice[index];
+        }
+        this.table = true;
+          
+        
+
+      },
+    }
+    }
+  
+  </script>
 
 <style src="./assets/tailwind.css"></style >
