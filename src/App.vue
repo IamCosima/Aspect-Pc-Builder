@@ -472,8 +472,8 @@
     <button @click = "total()"   class="bg-red-800 hover:bg-red-500 text-white font-bold py-2 my-4 pb-5 px-10 mx-50 rounded-full">Order</button>
   </div>
   <div v-if="table" class="overflow-x-auto relative shadow-md sm:rounded-lg">
-    <h1> Recipient:{{firstname}} {{lastname}}</h1>
-    <h2>Billing Address {{address}}</h2>
+    <h1> Recipient: {{firstname}} {{lastname}}</h1>
+    <h2>Billing Address: {{address}}</h2>
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
       <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
         <tr>
