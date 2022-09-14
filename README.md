@@ -1,24 +1,15 @@
-# vue-tailwind
+# Aspect Pc Builders
 
-## Project setup
+## How to use
 ```
-npm install
-```
+Please change your directory in the terminal to point to the vue-tailwind folder using:
+cd vue-tailwind
 
-### Compiles and hot-reloads for development
-```
+Then run 
 npm run serve
+
+Click on the Local host and the application will run in the browser
+
+Please then follow the instructions on the website
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
