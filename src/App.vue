@@ -593,5 +593,6 @@
     }
   
   </script>
-<!-- This is to add the tailwind css framework in to the project  -->
+<!-- This is to add the tailwind css framework in to the project  
+Made by Uzair Sarvan-->
 <style src="./assets/tailwind.css"></style >
