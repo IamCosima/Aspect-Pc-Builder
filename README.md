@@ -2,10 +2,7 @@
 
 ## How to use
 ```
-Please change your directory in the terminal to point to the vue-tailwind folder using:
-cd vue-tailwind
-
-Then run 
+Please run to create a local host
 npm run serve
 
 Click on the Local host and the application will run in the browser
